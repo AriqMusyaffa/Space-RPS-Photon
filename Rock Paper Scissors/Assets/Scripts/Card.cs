@@ -33,7 +33,7 @@ public class Card : MonoBehaviour
 
     public void OnClick()
     {
-        if (isClickable && GM.State == GameManager.GameState.ChooseAttack)
+        if (isClickable && GM.State == GameManager.GameState.ChooseAttack && RemoteConfigFetcher.gameplay)
         {
             player.SetChosenCard(this);
             player.ResetAllCards();

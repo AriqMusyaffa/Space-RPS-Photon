@@ -61,6 +61,12 @@ public class GameManager : MonoBehaviour, IOnEventCallback
     public VersusEndurance vsEndurance = VersusEndurance.Medium;
     [SerializeField] GameObject enduranceBlocker;
 
+    [Header("Health Config")]
+    public float playerDamage;
+    public float playerHeal;
+    public float enemyDamage;
+    public float enemyHeal;
+
     public enum GameDifficulty
     {
         Easy,
@@ -89,7 +95,8 @@ public class GameManager : MonoBehaviour, IOnEventCallback
 
     void Start()
     {
-        Screen.SetResolution(540, 960, false);
+        //Screen.SetResolution(540, 960, false);
+        RemoteConfigFetcher.gameplay = false;
 
         DD = GameObject.FindWithTag("DontDestroy").GetComponent<DontDestroy>();
 
@@ -298,56 +305,15 @@ public class GameManager : MonoBehaviour, IOnEventCallback
             case GameState.Damages :
                 if (P1.IsAnimating() == false && P2.IsAnimating() == false)
                 {
-                    switch (Difficulty)
+                    if (damagedPlayer == P1)
                     {
-                        case GameDifficulty.Easy :
-                            if (damagedPlayer == P1)
-                            {
-                                P1.ChangeHealth(+10);
-                                P2.ChangeHealth(-5);
-                            }
-                            else
-                            {
-                                P1.ChangeHealth(-10);
-                                P2.ChangeHealth(+30);
-                            }
-                            break;
-                        case GameDifficulty.Medium:
-                            if (damagedPlayer == P1)
-                            {
-                                P1.ChangeHealth(+20);
-                                P2.ChangeHealth(-10);
-                            }
-                            else
-                            {
-                                P1.ChangeHealth(-10);
-                                P2.ChangeHealth(+20);
-                            }
-                            break;
-                        case GameDifficulty.Hard:
-                            if (damagedPlayer == P1)
-                            {
-                                P1.ChangeHealth(+30);
-                                P2.ChangeHealth(-10);
-                            }
-                            else
-                            {
-                                P1.ChangeHealth(-5);
-                                P2.ChangeHealth(+10);
-                            }
-                            break;
-                        case GameDifficulty.Versus:
-                            if (damagedPlayer == P1)
-                            {
-                                P1.ChangeHealth(+20);
-                                P2.ChangeHealth(-10);
-                            }
-                            else
-                            {
-                                P1.ChangeHealth(-10);
-                                P2.ChangeHealth(+20);
-                            }
-                            break;
+                        P1.ChangeHealth(playerDamage);
+                        P2.ChangeHealth(enemyHeal);
+                    }
+                    else
+                    {
+                        P1.ChangeHealth(playerHeal);
+                        P2.ChangeHealth(enemyDamage);
                     }
 
                     var winner = GetWinner();
@@ -766,6 +732,10 @@ public class GameManager : MonoBehaviour, IOnEventCallback
 
             DD.audioSource.clip = DD.levelBGM;
             DD.audioSource.Play();
+
+            RemoteConfigFetcher.fetch = true;
+            RemoteConfigFetcher.gameplay = false;
+            StartCoroutine(StandbyHealthConfig());
         }
     }
 
@@ -1050,5 +1020,19 @@ public class GameManager : MonoBehaviour, IOnEventCallback
     public void EnableEnduranceButtons()
     {
         enduranceBlocker.SetActive(false);
+    }
+
+    public void SetHealthConfig (float _playerDamage, float _playerHeal, float _enemyDamage, float _enemyHeal)
+    {
+        playerDamage = _playerDamage;
+        playerHeal = _playerHeal;
+        enemyDamage = _enemyDamage;
+        enemyHeal = _enemyHeal;
+    }
+
+    IEnumerator StandbyHealthConfig()
+    {
+        yield return new WaitForSeconds(1);
+        RemoteConfigFetcher.gameplay = true;
     }
 }

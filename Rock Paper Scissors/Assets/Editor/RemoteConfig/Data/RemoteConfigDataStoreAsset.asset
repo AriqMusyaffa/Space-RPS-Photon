@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
+  m_Name: RemoteConfigDataStoreAsset
+  m_EditorClassIdentifier: 
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"bfdd40e3-a412-4f30-99a1-3b0d31d4c195\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"PlayerDamage\",\r\n      \"type\": \"float\",\r\n     
+    \"value\": 20.0\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
+    \"e8ac50b7-6b02-43f3-9b3b-5fd666f6979f\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"key\": \"PlayerHeal\",\r\n      \"type\": \"float\",\r\n      \"value\": -10.0\r\n   
+    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"954b83af-f7ce-491d-93d3-cd40053cfe46\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"EnemyDamage\",\r\n      \"type\": \"float\",\r\n     
+    \"value\": 20.0\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
+    \"318f224b-ba65-4d6a-a197-75c365ca753f\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"key\": \"EnemyHeal\",\r\n      \"type\": \"float\",\r\n      \"value\": -10.0\r\n   
+    }\r\n  }\r\n]"
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"bfdd40e3-a412-4f30-99a1-3b0d31d4c195\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"PlayerDamage\",\r\n      \"type\": \"float\",\r\n     
+    \"value\": 20.0\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
+    \"e8ac50b7-6b02-43f3-9b3b-5fd666f6979f\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"key\": \"PlayerHeal\",\r\n      \"type\": \"float\",\r\n      \"value\": -10.0\r\n   
+    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"954b83af-f7ce-491d-93d3-cd40053cfe46\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"EnemyDamage\",\r\n      \"type\": \"float\",\r\n     
+    \"value\": 20.0\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\":
+    \"318f224b-ba65-4d6a-a197-75c365ca753f\"\r\n    },\r\n    \"rs\": {\r\n     
+    \"key\": \"EnemyHeal\",\r\n      \"type\": \"float\",\r\n      \"value\": -10.0\r\n   
+    }\r\n  }\r\n]"
+  _environments: "[\r\n  {\r\n    \"projectId\": \"0c8749a0-78bf-4913-be92-5dffd5fdf05f\",\r\n   
+    \"name\": \"production\",\r\n    \"id\": \"60beb0a1-c672-4fd4-a116-d5e0bd185599\",\r\n   
+    \"isDefault\": true,\r\n    \"createdAt\": \"2022-11-16T02:45:31Z\",\r\n    \"updatedAt\":
+    \"2022-11-16T02:45:31Z\"\r\n  },\r\n  {\r\n    \"projectId\": \"0c8749a0-78bf-4913-be92-5dffd5fdf05f\",\r\n   
+    \"name\": \"development\",\r\n    \"id\": \"896e3a41-cc3f-4630-b54e-705d608d63f3\",\r\n   
+    \"isDefault\": false,\r\n    \"createdAt\": \"2022-11-16T03:01:51Z\",\r\n   
+    \"updatedAt\": \"2022-11-16T03:01:51Z\"\r\n  }\r\n]"
